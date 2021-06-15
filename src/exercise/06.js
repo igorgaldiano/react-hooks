@@ -99,7 +99,7 @@ function PokemonInfo({pokemonName}) {
        case 'pending':
             return <PokemonInfoFallback name={pokemonName} />
         
-        case 'resolved':
+        default:
           return <PokemonDataView pokemon={pokemon} />
           }
 
@@ -122,6 +122,7 @@ function App() {
 
   function handleSubmit(newPokemonName) {
     setPokemonName(newPokemonName)
+    if (!newPokemonName) setStatus('idle')
    
   }
 
